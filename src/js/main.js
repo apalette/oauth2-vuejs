@@ -1,14 +1,16 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
+import LoginVue from '../views/Login';
+
 Vue.use(VueRouter);
 
 const Foo = { template: '<div>foo</div>' };
 const Bar = { template: '<div>bar</div>' };
 
 const routes = [
-	{ path: '/', component: Foo},
-	{ path: '/foo', component: Foo },
+	{ path: '/', component: LoginVue},
+	{ path: '/login', component: LoginVue },
 	{ path: '/bar', component: Bar }
 ];
 const router = new VueRouter({
