@@ -1,44 +1,23 @@
 <!DOCTYPE html>
 <html lang="fr">
 	<head>
-    	<title>My first Vue app</title>
     	<meta charset="utf-8">
+    	<title>My first Vue app</title>
     	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-		<link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.min.css"/>
-		<script src="assets/libs/vue/js/vue.js"></script>
-		<script src="assets/libs/vue/js/vue-router.js"></script>
- 	</head>
-	<body>
-		<div id="app">
-  			<h1>Bonjour l'application !</h1>
-  			<p>
-    			<router-link to="/foo">Aller à Foo</router-link>
-    			<router-link to="/bar">Aller à Bar</router-link>
-  			</p>
-  			<router-view></router-view>
-		</div>
-
-    	<script src="assets/libs/jquery/js/jquery-3.2.1.slim.min.js"></script>
-    	<script src="assets/libs/popper/js/popper.min.js"></script>
-    	<script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
-  		<script>
-  			const Foo = { template: '<div>foo</div>' };
-			const Bar = { template: '<div>bar</div>' };
-			
-			const routes = [
-				{ path: '/', component: Foo },
-  				{ path: '/foo', component: Foo },
-  				{ path: '/bar', component: Bar }
-			];
-			const router = new VueRouter({
-				mode: 'history',
-				routes : routes,
-				base : '/codeuz/laravel-endpoint/front/' // custom
-			});
-			
-			const app = new Vue({
-  				router
-			}).$mount('#app');
-		</script>
-  	</body>
+  		<link rel="stylesheet" href="assets/libs/bootstrap/css/bootstrap.min.css"/>
+  	</head>
+  	<body>
+    <div id="app">
+		<h1>Bonjour l'application !</h1>
+		<p>
+			<router-link to="/foo">Aller à Foo</router-link>
+			<router-link to="/bar">Aller à Bar</router-link>
+		</p>
+		<router-view></router-view>
+	</div>
+	<script src="assets/libs/jquery/js/jquery-3.2.1.slim.min.js"></script>
+    <script src="assets/libs/popper/js/popper.min.js"></script>
+    <script src="assets/libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="dist/build.js"></script>
+  </body>
 </html>
