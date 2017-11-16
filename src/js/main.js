@@ -1,17 +1,28 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-import LoginVue from '../views/Login';
+import AuthLayout from '../layouts/Auth';
+import LoginView from '../views/Login';
 
 Vue.use(VueRouter);
 
-const Foo = { template: '<div>foo</div>' };
-const Bar = { template: '<div>bar</div>' };
-
 const routes = [
-	{ path: '/', component: LoginVue},
-	{ path: '/login', component: LoginVue },
-	{ path: '/bar', component: Bar }
+	{ 
+		path: '/',
+      	component: AuthLayout,
+      	children : [{
+      		path: '', 
+      		component : LoginView
+      	}]
+    },
+	{ 
+		path: '/auth/',
+      	component: AuthLayout,
+      	children : [{
+      		path: 'login', 
+      		component : LoginView
+      	}]
+    }
 ];
 const router = new VueRouter({
 	mode: 'history',
@@ -19,6 +30,4 @@ const router = new VueRouter({
 	base : '/codeuz/laravel-endpoint/front/' // custom
 });
 
-const app = new Vue({
-	router
-}).$mount('#app');
+const app = new Vue({router}).$mount('#app');
