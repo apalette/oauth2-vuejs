@@ -28,11 +28,14 @@ import axios from 'axios';
 export default {
 	methods : {
 		loginOnSubmit : function(e) {
-			axios.post('http://localhost:8888/codeuz/laravel-endpoint/backend/public/api/login', {
+			axios.post(this.$store.state.api.url + 'login', {
 				email : e.target.email.value,
 				password : e.target.password.value,
 			}).then(response => {
-      			alert('ok');
+      			console.log(response.data.token);
+      			this.$store.commit('addToken', response.data.token);
+      			console.log(this.$store.state.api.authToken);
+      			//his.$store.dispatch('login', {username: this.username, ppassword: password});
       			//this.posts = response.data
     		})
     		.catch(e => {
